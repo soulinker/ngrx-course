@@ -5,7 +5,7 @@
     <h2 class="title">All Courses</h2>
 
     <button mat-mini-fab>
-      <mat-icon class="add-course-btn" (click)="onAddCourse()">add</mat-icon>
+      <mat-icon (click)="onAddCourse()" class="add-course-btn">add</mat-icon>
     </button>
 
   </div>
@@ -14,7 +14,7 @@
     <p>In Promo: {{promoTotal$ | async}}</p>
   </div>
 
-  <div class="spinner-container" *ngIf="!(loading$ | async )">
+  <div *ngIf="!(loading$ | async )" class="spinner-container">
 
     <mat-spinner></mat-spinner>
 
@@ -25,7 +25,7 @@
     <mat-tab label="Beginners">
 
       <courses-card-list (courseChanged)="reload()"
-        [courses]="beginnerCourses$ | async">
+                         [courses]="beginnerCourses$ | async">
 
       </courses-card-list>
 
@@ -33,8 +33,8 @@
 
     <mat-tab label="Advanced">
 
-      <courses-card-list  (courseChanged)="reload()"
-        [courses]="advancedCourses$ | async"
+      <courses-card-list (courseChanged)="reload()"
+                         [courses]="advancedCourses$ | async"
 
       ></courses-card-list>
 

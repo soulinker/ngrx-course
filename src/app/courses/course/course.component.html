@@ -1,16 +1,16 @@
-<div class="course" *ngIf="(course$ | async) as course">
+<div *ngIf="(course$ | async) as course" class="course">
 
   <h2>{{course?.description}}</h2>
 
-  <img class="course-thumbnail mat-elevation-z8" [src]="course?.iconUrl">
+  <img [src]="course?.iconUrl" class="course-thumbnail mat-elevation-z8">
 
-  <div class="spinner-container" *ngIf="(loading$ | async )">
+  <div *ngIf="(loading$ | async )" class="spinner-container">
 
     <mat-spinner></mat-spinner>
 
   </div>
 
-  <mat-table class="lessons-table mat-elevation-z8" [dataSource]="lessons$ | async">
+  <mat-table [dataSource]="lessons$ | async" class="lessons-table mat-elevation-z8">
 
     <ng-container matColumnDef="seqNo">
 
@@ -24,8 +24,8 @@
 
       <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
 
-      <mat-cell class="description-cell"
-                *matCellDef="let lesson">{{lesson.description}}</mat-cell>
+      <mat-cell *matCellDef="let lesson"
+                class="description-cell">{{lesson.description}}</mat-cell>
 
     </ng-container>
 
@@ -33,8 +33,8 @@
 
       <mat-header-cell *matHeaderCellDef>Duration</mat-header-cell>
 
-      <mat-cell class="duration-cell"
-                *matCellDef="let lesson">{{lesson.duration}}</mat-cell>
+      <mat-cell *matCellDef="let lesson"
+                class="duration-cell">{{lesson.duration}}</mat-cell>
 
     </ng-container>
 
@@ -45,7 +45,8 @@
   </mat-table>
 
 
-  <button class="bottom-toolbar" mat-raised-button color="accent"
-          (click)="loadLessonsPage(course)">Load More</button>
+  <button (click)="loadLessonsPage(course)" class="bottom-toolbar" color="accent"
+          mat-raised-button>Load More
+  </button>
 
 </div>
